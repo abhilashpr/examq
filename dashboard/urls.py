@@ -14,6 +14,7 @@ urlpatterns = [
     path('users/add/', views.add_user, name='add_user'),
     
     # User exam routes
+    path('exam/', views.user_exam_login, name='exam_home'),
     path('exam/login/', views.user_exam_login, name='user_exam_login'),
     path('exam/dashboard/', views.user_dashboard, name='user_dashboard'),
     path('exam/take/', views.take_exam, name='take_exam'),

@@ -266,4 +266,8 @@ def exam_history(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('login')
+    # Check if user was in exam section or admin section
+    if request.path.startswith('/exam/'):
+        return redirect('user_exam_login')
+    else:
+        return redirect('login')

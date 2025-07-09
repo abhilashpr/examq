@@ -1,22 +1,22 @@
 {% load static %}
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 220px; min-height: 100vh;">
+<div class="d-flex flex-column flex-shrink-0 p-3 user-sidebar" style="width: 220px; min-height: 100vh;">
   <a href="{% url 'user_dashboard' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-    <span class="fs-4">Exam Portal</span>
+    <span class="fs-4 user-header">Exam Portal</span>
   </a>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="{% url 'user_dashboard' %}" class="nav-link {% if request.resolver_match.url_name == 'user_dashboard' %}active{% endif %}">
+      <a href="{% url 'user_dashboard' %}" class="nav-link user-nav-link {% if request.resolver_match.url_name == 'user_dashboard' %}active{% endif %}">
         Dashboard
       </a>
     </li>
     <li>
-      <a href="{% url 'take_exam' %}" class="nav-link {% if request.resolver_match.url_name == 'take_exam' %}active{% endif %}">
+      <a href="{% url 'take_exam' %}" class="nav-link user-nav-link {% if request.resolver_match.url_name == 'take_exam' %}active{% endif %}">
         Take Exam
       </a>
     </li>
     <li>
-      <a href="{% url 'exam_history' %}" class="nav-link {% if request.resolver_match.url_name == 'exam_history' %}active{% endif %}">
+      <a href="{% url 'exam_history' %}" class="nav-link user-nav-link {% if request.resolver_match.url_name == 'exam_history' %}active{% endif %}">
         Exam History
       </a>
     </li>

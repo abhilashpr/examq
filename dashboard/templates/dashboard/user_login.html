@@ -6,12 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Login | Exam Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+            min-height: 100vh;
+        }
+        .user-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .user-header {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-user {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-user:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(86, 171, 47, 0.3);
+        }
+        .user-link {
+            color: #56ab2f;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .user-link:hover {
+            color: #a8e6cf;
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
     <div class="container d-flex align-items-center justify-content-center min-vh-100">
-        <div class="card shadow p-4" style="min-width: 350px;">
-            <h2 class="mb-4 text-center">User Login</h2>
-            <p class="text-muted text-center mb-4">Login to take your exam</p>
+        <div class="card user-card shadow-lg p-4" style="min-width: 380px;">
+            <div class="text-center mb-4">
+                <h2 class="user-header mb-2">User Login</h2>
+                <p class="text-muted">Login to take your exam</p>
+            </div>
             {% if messages %}
                 {% for message in messages %}
                     <div class="alert alert-danger">{{ message }}</div>
@@ -27,10 +68,10 @@
                     {{ form.password.label_tag }}
                     {{ form.password|add_class:'form-control' }}
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <button type="submit" class="btn btn-user text-white w-100">Login to Take Exam</button>
             </form>
-            <div class="text-center mt-3">
-                <small class="text-muted">Admin? <a href="{% url 'login' %}">Login here</a></small>
+            <div class="text-center mt-4">
+                <small class="text-muted">Admin? <a href="{% url 'login' %}" class="user-link">Login here</a></small>
             </div>
         </div>
     </div>
