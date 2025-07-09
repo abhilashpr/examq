@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question List | Exam Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="d-flex">
+    {% include 'dashboard/sidebar.html' %}
+    <div class="container-fluid p-4">
+        <h2 class="mb-4">All Exam Questions</h2>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <table class="table table-bordered table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>PDF Title</th>
+                    <th>Question</th>
+                    <th>Options</th>
+                    <th>Answer</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for q in questions %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ q.exam_pdf.title }}</td>
+                    <td>{{ q.question_text }}</td>
+                    <td>
+                        <b>A)</b> {{ q.option_a }}<br>
+                        <b>B)</b> {{ q.option_b }}<br>
+                        <b>C)</b> {{ q.option_c }}<br>
+                        <b>D)</b> {{ q.option_d }}
+                    </td>
+                    <td class="text-uppercase">{{ q.answer }}</td>
+                    <td><a href="{% url 'edit_question' q.id %}" class="btn btn-warning btn-sm">Edit</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html> 

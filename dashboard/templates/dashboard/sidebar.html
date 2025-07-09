@@ -1,0 +1,38 @@
+{% load static %}
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 220px; min-height: 100vh;">
+  <a href="{% url 'dashboard' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+    <span class="fs-4">Exam Portal</span>
+  </a>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a href="{% url 'dashboard' %}" class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'upload_pdf' %}" class="nav-link {% if request.resolver_match.url_name == 'upload_pdf' %}active{% endif %}">
+        Upload PDF
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'question_list' %}" class="nav-link {% if request.resolver_match.url_name == 'question_list' %}active{% endif %}">
+        Question List
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'user_list' %}" class="nav-link {% if request.resolver_match.url_name == 'user_list' %}active{% endif %}">
+        User List
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'add_user' %}" class="nav-link {% if request.resolver_match.url_name == 'add_user' %}active{% endif %}">
+        Add User
+      </a>
+    </li>
+  </ul>
+  <hr>
+  <div>
+    <a href="{% url 'logout' %}" class="btn btn-outline-danger w-100">Logout</a>
+  </div>
+</div> 
